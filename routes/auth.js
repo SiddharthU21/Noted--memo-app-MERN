@@ -12,7 +12,7 @@ const jwt = require('jsonwebtoken');
 const fetchuser = require('../middleware/fetchuser');
 
 
-jwtsign = 'YOAATIETAEFHASFHAskdghlkhgs';
+jwtsign = process.env.JWT_SECRET;
 
 // 1 : Create a User using: Post "/api/auth/createuser" Doesn't require login.
 router.post('/createuser',[

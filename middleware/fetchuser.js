@@ -2,7 +2,7 @@
 const jwt = require('jsonwebtoken');
 
 
-const jwtsign = 'YOAATIETAEFHASFHAskdghlkhgs'; 
+const jwtsign = process.env.JWT_SECRET; 
 
 
 const fetchuser = (req,res,next)=>{
