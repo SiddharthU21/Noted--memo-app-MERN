@@ -14,25 +14,26 @@ const Signup = (props) => {
   const handleSubmit = async(e) =>{
       e.preventDefault();
       const {name,email, password, cpassword } = creds;
-      if(password===cpassword){
-      const response = await fetch( "http://localhost:5000/api/auth/createuser", 
-      {
-          method: 'POST',
-          headers: {
-          'Content-Type': 'application/json',
-          }, 
-          body: JSON.stringify({name,email, password})  
-      });
-      const json = await response.json()
-      if(json.success){
-        
-        localStorage.setItem('token' , json.authtoken)
-        history('/');
-        props.showAlert('Account created successfully','success')
-      }
-      else{
-        props.showAlert('Email aldready exists','danger')
-      } 
+      if(password===cpassword)
+    {
+        const response = await fetch( `http://localhost:${process.env.PORT}/api/auth/createuser`, 
+        {
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            }, 
+            body: JSON.stringify({name,email,password})  
+        });
+        const json = await response.json()
+        if(json.success){
+          
+          localStorage.setItem('token' , json.authtoken)
+          history('/');
+          props.showAlert('Account created successfully','success')
+        }
+        else{
+          props.showAlert('Email aldready exists','danger')
+        } 
     }
       else{
         props.showAlert('The passwords do not match','danger')
