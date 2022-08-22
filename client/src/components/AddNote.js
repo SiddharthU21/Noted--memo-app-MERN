@@ -16,7 +16,7 @@ const AddNote = (props) => {
     }
 
     const onChange = (e)=>{
-        //spread operator(...) which adds or updates existing array elements to the note array in this case
+        //spread operator(...) makes a shallow copy and adds or updates existing array elements to the note array in this case
         setNote({...note, [e.target.name]: e.target.value })
     }
   return (
