@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const NoteState = (props) => {
   
-  const host = `http://localhost:${process.env.PORT}`
+  const host = `http://localhost:${process.env.PORT || 5000}`
   const notesInital = []
   const [notes, setNotes] = useState(notesInital);
   

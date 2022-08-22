@@ -16,7 +16,7 @@ const Signup = (props) => {
       const {name,email, password, cpassword } = creds;
       if(password===cpassword)
     {
-        const response = await fetch( `http://localhost:${process.env.PORT}/api/auth/createuser`, 
+        const response = await fetch( `http://localhost:${ process.env.PORT || 5000 }/api/auth/createuser`, 
         {
             method: 'POST',
             headers: {
